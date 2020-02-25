@@ -1,0 +1,23 @@
+{
+  "name": "Euler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/berkeleybross/Euler.git",
+  "author": "James Ratcliffe <berkeleybross@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0",
+    "prettier": "1.19.1"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true
+  }
+}

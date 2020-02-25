@@ -25,6 +25,7 @@ function* generateProducts(start, end) {
 function maxPalindrome(start, end) {
   let max = 0
   for (const product of generateProducts(start, end)) {
+    // PERF: Check if max before checking is palindrome (50ms vs 300ms)
     if (product > max) {
       if (isPalindrome(product.toString(10))) {
         max = product

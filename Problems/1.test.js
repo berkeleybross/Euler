@@ -18,5 +18,5 @@ function sum(lessThan) {
 
 it('works', () => {
   expect(sum(10)).toBe(23)
-  expect(sum(1000)).toBe(233168)
+  expect(sum(1000)).toBe(233168) // Takes ~2ms, fast enough!
 })

@@ -36,6 +36,18 @@ function maxPalindrome(start, end) {
   return max
 }
 
+describe('maxPalindrome', () => {
+  it('calculates largest palindrome of 2 digits', () => {
+    const result = maxPalindrome(10, 99)
+    expect(result).toBe(9009)
+  })
+
+  it('calculates largest palindrome of 3 digits', () => {
+    const result = maxPalindrome(100, 999)
+    expect(result).toBe(906609) // Takes ~50ms, fast enough!
+  })
+})
+
 describe('isPalindrome', () => {
   it('returns true when given empty string', () => {
     expect(isPalindrome('')).toBe(true)
@@ -70,17 +82,5 @@ describe('generateProducts', () => {
   it('generates products', () => {
     const result = generateProducts(11, 12)
     expect(Array.from(result)).toEqual([121, 132, 132, 144])
-  })
-})
-
-describe('maxPalindrome', () => {
-  it('calculates largest palindrome of 2 digits', () => {
-    const result = maxPalindrome(10, 99)
-    expect(result).toBe(9009)
-  })
-
-  it('calculates largest palindrome of 3 digits', () => {
-    const result = maxPalindrome(100, 999)
-    expect(result).toBe(906609) // Takes ~50ms, fast enough!
   })
 })

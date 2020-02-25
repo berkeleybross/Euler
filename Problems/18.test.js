@@ -1,5 +1,3 @@
-import { maximumPath } from './18'
-
 // Maximum path sum I
 
 // Problem 18
@@ -28,6 +26,20 @@ const largeTriangle = [
 ]
 
 // NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
+
+function maximumPath(triangle) {
+  return subPath(0, 0)
+
+  function subPath(row, col) {
+    const value = triangle[row][col]
+
+    if (row == triangle.length - 1) {
+      return value
+    }
+
+    return value + Math.max(subPath(row + 1, col), subPath(row + 1, col + 1))
+  }
+}
 
 it('works on small triangle', () => {
   expect(maximumPath(smallTriangle)).toBe(23)

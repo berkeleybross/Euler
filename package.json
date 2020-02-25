@@ -6,6 +6,7 @@
   "author": "James Ratcliffe <berkeleybross@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
     "watch": "jest --watch"
   },
   "devDependencies": {

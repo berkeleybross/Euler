@@ -1,0 +1,6 @@
+<RuleSet Name="Rules for Euler project" Description="" ToolsVersion="10.0">
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <Rule Id="SA1600" Action="None" />
+        <Rule Id="SA1629" Action="None" />
+    </Rules>
+</RuleSet>

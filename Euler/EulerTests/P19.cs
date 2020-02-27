@@ -1,9 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+// <copyright file="P19.cs" company="Berkeleybross">
+// Copyright (c) Berkeleybross. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace EulerTests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class P19
     {
         public static int CountSundays()
@@ -15,13 +20,13 @@ namespace EulerTests
         {
             // Epoch is Monday, 1st Jan 1900
             var numDaysSinceEpoch = 0;
-            
+
             // Count number of days between epoch and start year
             for (var year = 1900; year < startYear; year++)
             {
                 numDaysSinceEpoch += IsLeapYear(year) ? 366 : 365;
             }
-            
+
             // For each month of each year, return the day of the week and then progress one month.
             for (var year = startYear; year <= endYear; year++)
             {
@@ -29,8 +34,8 @@ namespace EulerTests
                 {
                     // Our Epoch has Monday = 0, but DayOfWeek Sunday = 0
                     // Add one to the day of week to account for this offset, then calculate which day it is.
-                    yield return (DayOfWeek) ((numDaysSinceEpoch + 1) % 7);
-                    
+                    yield return (DayOfWeek)((numDaysSinceEpoch + 1) % 7);
+
                     numDaysSinceEpoch += GetNumDaysInMonth(year, month);
                 }
             }
@@ -68,7 +73,7 @@ namespace EulerTests
             {
                 return false;
             }
-            
+
             if (year % 100 == 0)
             {
                 return year % 400 == 0;

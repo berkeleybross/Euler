@@ -1,27 +1,30 @@
-/*
-Counting Sundays
-   
-Problem 19
-You are given the following information, but you may prefer to do some research for yourself.
-
-1 Jan 1900 was a Monday.
-Thirty days has September,
-April, June and November.
-All the rest have thirty-one,
-Saving February alone,
-Which has twenty-eight, rain or shine.
-And on leap years, twenty-nine.
-A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
-How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
- */
-
-using System;
-using System.Collections.Generic;
-using FluentAssertions;
-using Xunit;
+// <copyright file="P19Tests.cs" company="Berkeleybross">
+// Copyright (c) Berkeleybross. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace EulerTests
 {
+    using System;
+    using System.Collections.Generic;
+    using FluentAssertions;
+    using Xunit;
+
+    /// <summary>
+    /// Counting Sundays
+    /// Problem 19
+    /// You are given the following information, but you may prefer to do some research for yourself.
+    ///
+    /// 1 Jan 1900 was a Monday.
+    /// Thirty days has September,
+    /// April, June and November.
+    /// All the rest have thirty-one,
+    /// Saving February alone,
+    /// Which has twenty-eight, rain or shine.
+    /// And on leap years, twenty-nine.
+    /// A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
+    /// How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+    /// </summary>
     public class P19Tests
     {
         public class Solution
@@ -53,7 +56,7 @@ namespace EulerTests
             {
                 P19.GetNumDaysInMonth(0, month).Should().Be(days);
             }
-            
+
             [Theory]
             [InlineData(1)]
             [InlineData(2)]
@@ -63,7 +66,7 @@ namespace EulerTests
             {
                 P19.GetNumDaysInMonth(year, 1).Should().Be(28);
             }
-            
+
             [Theory]
             [InlineData(0)]
             [InlineData(4)]
@@ -82,19 +85,19 @@ namespace EulerTests
             {
                 P19.GetFirstDaysOfMonth(1901, 1901).Should().Equal(
                     DayOfWeek.Tuesday,
-                    DayOfWeek.Friday, 
                     DayOfWeek.Friday,
-                    DayOfWeek.Monday, 
-                    DayOfWeek.Wednesday, 
+                    DayOfWeek.Friday,
+                    DayOfWeek.Monday,
+                    DayOfWeek.Wednesday,
                     DayOfWeek.Saturday,
                     DayOfWeek.Monday,
                     DayOfWeek.Thursday,
                     DayOfWeek.Sunday,
                     DayOfWeek.Tuesday,
-                    DayOfWeek.Friday, 
+                    DayOfWeek.Friday,
                     DayOfWeek.Sunday);
             }
-            
+
             [Fact]
             public void Matches_system_days_of_week()
             {
@@ -113,7 +116,7 @@ namespace EulerTests
                 }
             }
         }
-        
+
         public class IsLeapYear
             : P19Tests
         {
@@ -126,7 +129,7 @@ namespace EulerTests
             {
                 P19.IsLeapYear(year).Should().Be(false);
             }
-            
+
             [Theory]
             [InlineData(0)]
             [InlineData(4)]
@@ -135,7 +138,7 @@ namespace EulerTests
             {
                 P19.IsLeapYear(year).Should().Be(true);
             }
-            
+
             [Theory]
             [InlineData(100)]
             [InlineData(200)]
@@ -144,7 +147,7 @@ namespace EulerTests
             {
                 P19.IsLeapYear(year).Should().Be(false);
             }
-            
+
             [Theory]
             [InlineData(0)]
             [InlineData(400)]
